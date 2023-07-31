@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlacesComponent } from './components/places/places.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ClubsComponent,
     ClubComponent,
     PlacesComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

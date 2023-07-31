@@ -4,12 +4,12 @@ import { ClubsService } from 'src/app/shared/clubs.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PlacesComponent } from '../places/places.component';
 
-interface Place {
+export interface Place {
   place_id: number,
   availability: string;
 }
 
-interface Club {
+export  interface  Club {
   id:number,
   name:string,
   rating: string,

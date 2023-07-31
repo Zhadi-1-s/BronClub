@@ -1,14 +1,21 @@
-<div class="club_pos">
-    <div class="card" style="width: 18rem;" *ngIf="club">
-        <img class="card-img-top" [src]="club.photoUrl">
-        <div class="card-body">
-          <h1>{{club?.name}}</h1>
-        </div>
+<div> 
+  <div class="info">
+    <div class="card">
+      <h5 class="card-header">{{club.name}}</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{club.rating}}</h5>
+        <p class="card-text">some instagramm, contacts, adress </p>
+        <h1>2Gis integration</h1>
+        <button class="btn btn-success" (click)="openBook()"><span>
+          Забронировать
+        </span></button>
       </div>
+    </div>
+  </div>
+
 </div>
-<div class="button_pos">
-    <button class="btn btn-success" (click)="openBook()"><span>Забронировать</span></button>
-</div>
+
+
 
 <div *ngIf="isOpen">
     <div class="booking">
@@ -28,12 +35,12 @@
                 </ul>
 
                 <ul *ngFor="let place of vipPlaces">
-                  <div class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked'?'red':'green'}">
-                    <span>
-                      {{place.place_id}}
-                    </span>
+                  <div>
+                    <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked'?'red':'green'}">
+                      <span>{{place.place_id}}</span>
+                    </button>
                   </div>
-                </ul>
+                </ul> 
             </div>
         </div>
     </div>
