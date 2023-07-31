@@ -1,0 +1,88 @@
+{
+  "clubs": [
+    {
+      "id": 1,
+      "name": "Bro",
+      "rating": "5.0",
+      "photoUrl": "assets/bro.jpg",
+      "areas": [
+        {
+          "main": {
+            "places": [
+              {
+                "place_id": 1,
+                "availability": "booked"
+              },
+              {
+                "place_id": 2,
+                "availability": "booked"
+              },
+              {
+                "place_id": 3,
+                "availability": "booked"
+              }
+            ]
+          },
+          "vip": {
+            "places": [
+              {
+                "place_id": 1,
+                "availability": "booked"
+              },
+              {
+                "place_id": 2,
+                "availability": "booked"
+              },
+              {
+                "place_id": 3,
+                "availability": "available"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Meta",
+      "rating": "4.0",
+      "photoUrl": "assets/meta.jpg",
+      "areas": [
+        {
+          "main": {
+            "places": [
+              {
+                "place_id": 1,
+                "availability": "booked"
+              },
+              {
+                "place_id": 2,
+                "availability": "available"
+              },
+              {
+                "place_id": 3,
+                "availability": "booked"
+              }
+            ]
+          },
+          "vip": {
+            "places": [
+              {
+                "place_id": 1,
+                "availability": "available"
+              },
+              {
+                "place_id": 2,
+                "availability": "available"
+              },
+              {
+                "place_id": 3,
+                "availability": "booked"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

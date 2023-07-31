@@ -1,0 +1,53 @@
+<div class="club_pos">
+    <div class="card" style="width: 18rem;" *ngIf="club">
+        <img class="card-img-top" [src]="club.photoUrl">
+        <div class="card-body">
+          <h1>{{club?.name}}</h1>
+        </div>
+      </div>
+</div>
+<div class="button_pos">
+    <button class="btn btn-success" (click)="openBook()"><span>Забронировать</span></button>
+</div>
+
+<div *ngIf="isOpen">
+    <div class="booking">
+        <button (click)="closeBook()">Close</button>
+        <div class="mainPlaces">
+          <div class="mainVip">
+            <button class="btn btn-primary" (click)="showPlaces('main')" [ngClass]="{'active': mainPlacesVisible}">Main</button>
+            <button class="btn btn-primary" (click)="showPlaces('vip')" [ngClass]="{'active':vipPlacesVisible}">Vip</button>
+          </div>
+            <div class="appearPlaces">
+                <ul *ngFor="let place of mainPlaces">
+                  <div>
+                    <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked' ? 'red':'green'}">
+                      <span>{{place.place_id}}</span>
+                    </button>
+                  </div>
+                </ul>
+
+                <ul *ngFor="let place of vipPlaces">
+                  <div class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked'?'red':'green'}">
+                    <span>
+                      {{place.place_id}}
+                    </span>
+                  </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="places">
+    <div>
+        <button class="btn btn-primary" (click)="showPlaces('main')" >Main</button>
+        <button class="btn btn-primary" (click)="showPlaces('vip')">Vip</button>
+    </div>
+    <div *ngFor="let place of mainPlaces">
+        <h1>{{place.place_id}}</h1>
+    </div>
+    <div *ngFor="let place of vipPlaces">
+        <h1>{{place.place_id}}</h1>
+    </div>
+</div> -->

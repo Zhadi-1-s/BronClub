@@ -1,0 +1,20 @@
+<h1>{{club.name}}</h1>
+<div>
+    <button class="btn btn-primary" (click)="showPlaces('main')" >Main</button>
+    <button class="btn btn-primary" (click)="showPlaces('vip')">Vip</button>
+</div>
+<div class="places-modal">
+    <h3>Main Area</h3>
+    <ul>
+      <li *ngFor="let place of mainPlaces">
+        Place ID: {{ place.place_id }}, Availability: {{ place.availability }}
+      </li>
+    </ul>
+  
+    <h3>VIP Area</h3>
+    <ul>
+      <li *ngFor="let place of vipPlaces">
+        Place ID: {{ place.place_id }}, Availability: {{ place.availability }}
+      </li>
+    </ul>
+</div>

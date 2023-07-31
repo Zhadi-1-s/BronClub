@@ -1,0 +1,78 @@
+.club_pos{
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+.button_pos{
+    position: absolute;
+    top: 450px;
+    left:100px;
+}
+.button_pos button{
+    width: 290px;
+    height: 50px;
+}
+.button_pos span{
+    font-size: 30px;
+    position: relative;
+    bottom: 5px;
+}
+.places{
+    position: fixed;
+    left: 400px;
+    top: 100px;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.custom-modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.booking{
+    position: relative;
+    left: 700px;
+    top: 100px;
+    width: 400px;
+    height: 400px;
+    border: solid 1px;
+    z-index: 2;
+}
+.mainPlaces{
+    position: relative;
+    top: 50px;
+    left: 50px;
+    padding: 10px;
+    margin: 10px;
+}
+.mainVip{
+    position: relative;
+    bottom: 80px;
+    display:flex ;
+    flex-direction: row;
+}
+.mainVip button{
+    margin-right: 50px;
+    width: 70px;
+}
+.mainVip button.active{
+    background-color: green;
+}
+.selectPlace{
+    border: solid 2px;
+    border-radius: 3px;
+    width: 40px;
+    text-align: center;
+}
+.tobook{
+    position: relative;
+    left: 50px;
+    bottom: 20px;
+}
+.appearPlaces{
+    position: relative;
+    bottom: 50px;
+}

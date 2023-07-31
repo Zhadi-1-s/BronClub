@@ -1,31 +1,28 @@
-import { Component } from '@angular/core';
-import { Clubs } from 'src/app/shared/clubs';
+import { Component,OnInit } from '@angular/core';
+import { ClubsService } from 'src/app/shared/clubs.service';
+
 @Component({
   selector: 'app-clubs',
   templateUrl: './clubs.component.html',
   styleUrls: ['./clubs.component.css']
 })
-export class ClubsComponent {
+export class ClubsComponent implements OnInit {
 
-  public clubs: Clubs[]= [
-    {
-      id: 1,
-      name: 'Bro',
-      rating: 5.0,
-      photoUrl: '/assets/bro.jpg'
-    },
-    {
-      id:2,
-      name:'Meta',
-      rating:5.0,
-      photoUrl:'/assets/meta.jpg'
-    },
-    {
-      id:3,
-      name:'Dofg',
-      rating:5.0,
-      photoUrl:'someUrls'
-    }
-  ]
+  clubs:any[];
+
+  constructor(private clubService:ClubsService){}
+
+  ngOnInit(): void {
+   
+    this.clubService.getClubsData().subscribe(
+      data => {
+        this.clubs = data;
+        console.log(this.clubService);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+}
 
 }
