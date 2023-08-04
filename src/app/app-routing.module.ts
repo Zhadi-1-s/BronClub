@@ -4,13 +4,16 @@ import { MainComponent } from './components/main/main.component';
 import { ClubsComponent } from './components/clubs/clubs.component';
 import { ClubComponent } from './components/club/club.component';
 import { PlacesComponent } from './components/places/places.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/main',pathMatch:'full'},
   {path:'main',component:MainComponent},
   {path:'clubs',component:ClubsComponent},
   {path:'clubs/:id',component:ClubComponent},
-  {path:'**',redirectTo:'/clubs',pathMatch:'full'}
+  {path:'clubs/places/:id',component:PlacesComponent},
+  {path:'admin',component:AdminComponent},
+  {path:'**',redirectTo:'/clubs',pathMatch:'full'},
 ];
 
 @NgModule({

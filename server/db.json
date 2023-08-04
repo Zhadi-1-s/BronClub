@@ -84,5 +84,45 @@
         }
       ]
     }
+  ],
+  "users": [
+    {
+      "id:": 1,
+      "clubId": 1,
+      "userName": "firstUser",
+      "telephone": "87086757610",
+      "placeId": 1
+    },
+    {
+      "id": 2,
+      "clubId": 2,
+      "userName": "secondUser",
+      "telephone": "87776442004",
+      "placeId": 3
+    },
+    {
+      "id": "6dd89365-daa1-4646-a6a9-4d6d50e0b475",
+      "clubId": 2,
+      "placeId": 2
+    },
+    {
+      "id": "818a4a6f-0520-4df5-a38d-b3014b738034",
+      "clubId": 1,
+      "placeId": 3
+    },
+    {
+      "id": "3e154de1-154c-48df-b243-83d94bf75083",
+      "clubId": 1,
+      "userName": "",
+      "telephone": "",
+      "placeId": 3
+    },
+    {
+      "id": "8f67c886-3159-400d-a346-144c5ebb604f",
+      "clubId": 2,
+      "userName": "Zhadiger",
+      "telephone": "877755566644",
+      "placeId": 2
+    }
   ]
 }

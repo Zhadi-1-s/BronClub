@@ -9,6 +9,8 @@ export class MainComponent implements OnInit {
 
   clubs:any[];
 
+  test:string = '';
+
   constructor(private clubService:ClubsService){}
 
   ngOnInit(): void {
@@ -22,5 +24,10 @@ export class MainComponent implements OnInit {
           console.log(error);
         }
       );
+      console.log(this.test)
+  }
+
+  onSubmit(val:string){
+   console.log('the test is ',val)
   }
 }

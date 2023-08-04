@@ -1,20 +1,48 @@
-<h1>{{club.name}}</h1>
-<div>
-    <button class="btn btn-primary" (click)="showPlaces('main')" >Main</button>
-    <button class="btn btn-primary" (click)="showPlaces('vip')">Vip</button>
-</div>
-<div class="places-modal">
-    <h3>Main Area</h3>
-    <ul>
-      <li *ngFor="let place of mainPlaces">
-        Place ID: {{ place.place_id }}, Availability: {{ place.availability }}
-      </li>
-    </ul>
-  
-    <h3>VIP Area</h3>
-    <ul>
-      <li *ngFor="let place of vipPlaces">
-        Place ID: {{ place.place_id }}, Availability: {{ place.availability }}
-      </li>
-    </ul>
-</div>
+<div class="areas">
+  <h1>Выберите Зону </h1>
+  <div class="buttons">
+    <button class="btn btn-primary" (click)="showPlaces('main')" [ngClass]="{'active': mainPlacesVisible}">Main</button>
+    <button class="btn btn-primary" (click)="showPlaces('vip')" [ngClass]="{'active':vipPlacesVisible}">Vip</button>
+  </div>
+  <div class="places">
+    <div>
+      <div>
+        <div *ngIf="mainPlaces.length" style="position: relative; left: 170px;">
+          <h1>Main Places</h1>
+          <ul *ngFor="let place of mainPlaces">
+            <div>
+              <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked' ? 'red':'green'}" (click)="toBook(place.place_id, club.id)" [disabled]="place.availability === 'booked'">
+                <span>{{place.place_id}}</span>
+              </button>
+            </div>
+          </ul>
+        </div>
+        
+        <div *ngIf="vipPlaces.length" style="position: relative; left: 170px;">
+          <h1>Vip Places</h1>
+          <ul *ngFor="let place of vipPlaces">
+            <div>
+              <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked'?'red':'green'}" (click)="toBook(place.place_id, club.id)" [disabled]="place.availability === 'booked'">
+                <span>{{place.place_id}}</span>
+              </button>
+            </div>
+          </ul> 
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isOpen">
+      <div class="form-overlay">
+        <button (click)="closeBook()" style="width: 80px;height: 20px;">Close</button>
+        <div class="booking">
+          <div class="form-group">
+            <label>UserName</label>
+            <input type="text" class="form-control" placeholder="Напишите ваше имя" #username>
+          </div>
+          <div class="form-group">
+            <label >Telephone Number</label>
+            <input type="tel" class="form-control" placeholder="Ваш номер телефона" #telephone >
+          </div>
+          <button type="button" class="btn btn-success" type="button" (click)="postUser(username.value, telephone.value)">Забронировать</button>
+        </div>
+      </div>
+    </div>

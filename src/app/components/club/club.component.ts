@@ -1,8 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClubsService } from 'src/app/shared/clubs.service';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { PlacesComponent } from '../places/places.component';
 
 export interface Place {
   place_id: number,
@@ -37,7 +35,9 @@ export class ClubComponent implements OnInit {
 
   isOpen: boolean = false;
 
-  constructor(private route : ActivatedRoute, private clubService: ClubsService,private dialog: MatDialog){}
+  toBook: boolean = false;
+
+  constructor(private route : ActivatedRoute, private clubService: ClubsService,private router: Router){}
 
   ngOnInit(): void {
       this.route.paramMap.subscribe((params:any) => {
@@ -52,6 +52,10 @@ export class ClubComponent implements OnInit {
           }
         );
       })
+    }
+
+    goToPlaces(id: number): void {
+      this.router.navigate(['/clubs/places', id]);
     }
 
     bookPlace(place:Place, area: 'main'| 'vip'):void{
