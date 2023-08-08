@@ -1,0 +1,37 @@
+.users{
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border: solid 1px;
+    left: 90px;
+    top: 30px;
+}
+.areas{
+    position: absolute;
+    left: 400px;
+    top: 100px;
+    width: 700px;
+    height: 600px;
+    border-radius: 4px;
+}
+.places{
+    position: relative;
+    left: 400px;
+    top: 40px;
+    width: 500px;
+    height: 500px;
+    border: solid 2px;
+    border-radius: 3px;
+}
+.palces ul{
+    list-style: none;
+}
+.mainPlaces{
+    position: relative;
+    left: 150px;
+    height: 225px;
+}
+.vipPlace{
+    position: relative;
+    left: 150px;
+}

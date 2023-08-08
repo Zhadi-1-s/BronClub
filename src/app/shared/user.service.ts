@@ -18,4 +18,12 @@ export class UserService {
   createUser(user:any){
     return this.http.post<any>(this.apiUrl, user)
   }
+  getUserById(id:number):Observable<any>{
+    const url = `${this.apiUrl}?clubId=${id}`;
+    return this.http.get<any>(url);
+  }
+  deleteUser(id:string){
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url)
+  }
 }

@@ -58,21 +58,6 @@ export class ClubComponent implements OnInit {
       this.router.navigate(['/clubs/places', id]);
     }
 
-    bookPlace(place:Place, area: 'main'| 'vip'):void{
-      if(place.availability  === 'available'){
-        place.availability = 'booked';
-        this.clubService.changeAvailability(this.club).subscribe(
-          ()=> {
-            console.log('availability changed succesfully');
-          },
-          error =>{
-            console.error(error);
-            place.availability = 'available';
-          }
-        );
-      }
-    }
-
   getClubDetails(id:number): any{
     return this.clubService.getClubById(id)
   }

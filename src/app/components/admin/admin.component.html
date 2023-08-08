@@ -1,3 +1,52 @@
-<div *ngFor="let user of users">
-    <h1>{{user.userName}}</h1>
+<div class="areas">
+  <div class="places">
+      <div class="mainPlaces">
+          <h1>Main Places</h1>
+          <ul *ngFor="let place of mainPlaces">
+              <li>
+                  <button [ngStyle]="{'background-color':place.availability === 'booked' ? 'red':'green'}" (click)="toBook()" >
+                      <span>{{place.place_id}}</span>
+                  </button>
+              </li>
+          </ul>
+      </div>
+      <hr>
+      <div class="vipPlace">
+          <h1>Vip Places</h1>
+          <ul *ngFor="let place of vipPlaces">
+              <li>
+                  <button [ngStyle]="{'background-color':place.availability === 'booked' ? 'red':'green'}" (click)="toBook()" >
+                      <span>{{place.place_id}}</span>
+                  </button>
+              </li>
+          </ul>
+      </div>
+  </div>
+</div>
+
+<div class="users">
+  <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Имя</th>
+          <th scope="col">Телефона</th>
+          <th scope="col">Дата</th>
+          <th scope="col">Зона</th>
+          <th scope="col">Место</th>
+          <th scope="col">Управление</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let user of users">
+              <td>{{user.userName}}</td>
+              <td>{{user.telephone}}</td>
+              <td>{{user.date}} {{user.time}}</td>
+              <td>{{user.area}}</td>
+              <td>{{user.placeId}}</td>
+              <td>
+                  <button class="btn btn-danger" type="button" (click)="deleteBook(user.place,user.area)">Снять бронь</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
 </div>

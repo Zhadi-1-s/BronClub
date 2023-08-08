@@ -13,6 +13,7 @@ const routes: Routes = [
   {path:'clubs/:id',component:ClubComponent},
   {path:'clubs/places/:id',component:PlacesComponent},
   {path:'admin',component:AdminComponent},
+  {path:'admin/:id',component:AdminComponent},
   {path:'**',redirectTo:'/clubs',pathMatch:'full'},
 ];
 

@@ -1,8 +1,9 @@
 import { Component,OnInit,Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClubsService } from 'src/app/shared/clubs.service';
 import { UserService } from 'src/app/shared/user.service';
 import {v4 as uuidv4} from 'uuid';
+import { Place } from '../club/club.component';
 
 @Component({
   selector: 'app-places',
@@ -11,7 +12,7 @@ import {v4 as uuidv4} from 'uuid';
 })
 export class PlacesComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private clubService: ClubsService, private userService: UserService){}
+  constructor(private route: ActivatedRoute, private clubService: ClubsService, private userService: UserService, private router:Router){}
 
   club: any;
   
@@ -28,6 +29,8 @@ export class PlacesComponent implements OnInit {
 
   isOpen : boolean = false;
 
+  place:Place;
+  areaName: 'main' | 'vip' = 'main';
   
   ngOnInit(): void {
     this.route.paramMap.subscribe((params:any) => {
@@ -43,12 +46,25 @@ export class PlacesComponent implements OnInit {
       })  
     }
     
-    postUser(userName:string, telephone: string){
+    goToAdmin(id:number):void{
+      this.router.navigate(['/admin',id])
+    }
+
+    booking(userName:string, tel: string, place: Place, area: 'main'| 'vip', date:string, time:string):void{
+      this.bookPlace(place, area);
+      // this.postUser(userName, tel,date, time, area, place);
+    }
+
+    postUser(userName:string, telephone: string, date: string, time:string, area: 'main'| 'vip', place:Place){
     const newUser = {
       id: uuidv4(),
       clubId: this.clubId,
       userName,
       telephone,
+      date,
+      time,
+      area,
+      place,
       placeId: this.placeId
     };
     this.userService.createUser(newUser).subscribe(
@@ -60,6 +76,26 @@ export class PlacesComponent implements OnInit {
         console.error( 'the error is ', error, this.clubId , this.placeId)
       }
     );
+  }
+  bookPlace(place:Place, area: 'main'| 'vip'):void{
+    console.log(place)
+    console.log(this.club.areas[0].main.places[0])
+    if(place.availability === 'available'){
+      place.availability = 'booked';
+    }
+    console.log(this.club.areas[0].main.places[0])
+    // if(place.availability  === 'available'){
+    //   place.availability = 'booked';
+    //   this.clubService.changeAvailability(this.club).subscribe(
+    //     ()=> {
+    //       console.log('availability changed succesfully');
+    //     },
+    //     error =>{
+    //       console.error(error);
+    //       place.availability = 'available';
+    //     }
+    //   );
+    // }
   }
 
   getClubDetails(id:number): any{
@@ -80,11 +116,12 @@ export class PlacesComponent implements OnInit {
     console.log('button clicked')
   }
 
-  toBook(id:number, clubId:number):void{
+  toBook(id:number,place: Place, clubId:number, name:'main'|'vip'):void{
     this.isOpen = true;
     this.placeId = id;
     this.clubId = clubId;
-    console.log(id, clubId);
+    this.place = place;
+    this.areaName = name;
   }
   closeBook():void{
     this.isOpen = false;

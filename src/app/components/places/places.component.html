@@ -3,6 +3,7 @@
   <div class="buttons">
     <button class="btn btn-primary" (click)="showPlaces('main')" [ngClass]="{'active': mainPlacesVisible}">Main</button>
     <button class="btn btn-primary" (click)="showPlaces('vip')" [ngClass]="{'active':vipPlacesVisible}">Vip</button>
+    <button class="btn btn-primary" (click)="goToAdmin(club.id)" type="button" >GO to admin</button>
   </div>
   <div class="places">
     <div>
@@ -11,7 +12,7 @@
           <h1>Main Places</h1>
           <ul *ngFor="let place of mainPlaces">
             <div>
-              <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked' ? 'red':'green'}" (click)="toBook(place.place_id, club.id)" [disabled]="place.availability === 'booked'">
+              <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked' ? 'red':'green'}" (click)="toBook(place.place_id, place,club.id, 'main')" [disabled]="place.availability === 'booked'">
                 <span>{{place.place_id}}</span>
               </button>
             </div>
@@ -22,27 +23,35 @@
           <h1>Vip Places</h1>
           <ul *ngFor="let place of vipPlaces">
             <div>
-              <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked'?'red':'green'}" (click)="toBook(place.place_id, club.id)" [disabled]="place.availability === 'booked'">
+              <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked'?'red':'green'}" (click)="toBook(place.place_id,place, club.id, 'vip')" [disabled]="place.availability === 'booked'">
                 <span>{{place.place_id}}</span>
               </button>
             </div>
           </ul> 
         </div>
       </div>
-    </div>
-    <div *ngIf="isOpen">
-      <div class="form-overlay">
-        <button (click)="closeBook()" style="width: 80px;height: 20px;">Close</button>
-        <div class="booking">
-          <div class="form-group">
-            <label>UserName</label>
-            <input type="text" class="form-control" placeholder="Напишите ваше имя" #username>
+      <div *ngIf="isOpen">
+        <div class="form-overlay">
+          <button (click)="closeBook()" style="width: 80px;height: 20px;">Close</button>
+          <div class="booking">
+            <div class="form-group">
+              <label>UserName</label>
+              <input type="text" class="form-control" placeholder="Напишите ваше имя" #username>
+            </div>
+
+            <div class="form-group">
+              <label >Telephone Number</label>
+              <input type="tel" class="form-control" placeholder="Ваш номер телефона" #telephone >
+            </div>
+            
+            <div style="position: relative; top: 10px;">
+              <label>Выберите дату</label>
+              <input type="date" style="width: 170px;height: 30px;position: relative; left: 5px;" #date>
+              <input type="time" style="position: relative;left: 15px;" #time>
+            </div>
+            
+            <button type="button" class="btn btn-success" type="button" (click)="booking(username.value, telephone.value,place,areaName,date.value, time.value)" style="position: relative; top: 30px;">Забронировать</button>
           </div>
-          <div class="form-group">
-            <label >Telephone Number</label>
-            <input type="tel" class="form-control" placeholder="Ваш номер телефона" #telephone >
-          </div>
-          <button type="button" class="btn btn-success" type="button" (click)="postUser(username.value, telephone.value)">Забронировать</button>
         </div>
       </div>
     </div>
