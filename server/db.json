@@ -27,7 +27,7 @@
             "places": [
               {
                 "place_id": 1,
-                "availability": "booked"
+                "availability": "available"
               },
               {
                 "place_id": 2,
@@ -89,20 +89,5 @@
       ]
     }
   ],
-  "users": [
-    {
-      "id": "ca19eef2-3690-4b6f-b5a1-4ccff08df654",
-      "clubId": 1,
-      "userName": "Zhadiger",
-      "telephone": "87086757610",
-      "date": "2023-08-08",
-      "time": "21:14",
-      "area": "vip",
-      "place": {
-        "place_id": 1,
-        "availability": "booked"
-      },
-      "placeId": 1
-    }
-  ]
+  "users": []
 }

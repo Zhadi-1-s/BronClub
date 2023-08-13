@@ -24,5 +24,4 @@ export class ClubsComponent implements OnInit {
       }
     );
 }
-
 }

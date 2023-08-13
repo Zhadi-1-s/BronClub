@@ -44,7 +44,7 @@
               <td>{{user.area}}</td>
               <td>{{user.placeId}}</td>
               <td>
-                  <button class="btn btn-danger" type="button" (click)="deleteBook(user.place,user.area)">Снять бронь</button>
+                  <button class="btn btn-danger" type="button" (click)="deleteUserFromTable(user.id,user.place,user.area)">Снять бронь</button>
               </td>
           </tr>
       </tbody>

@@ -52,7 +52,8 @@ export class PlacesComponent implements OnInit {
 
     booking(userName:string, tel: string, place: Place, area: 'main'| 'vip', date:string, time:string):void{
       this.bookPlace(place, area);
-      // this.postUser(userName, tel,date, time, area, place);
+      this.postUser(userName, tel,date, time, area, place);
+      this.closeBook()
     }
 
     postUser(userName:string, telephone: string, date: string, time:string, area: 'main'| 'vip', place:Place){
@@ -78,24 +79,18 @@ export class PlacesComponent implements OnInit {
     );
   }
   bookPlace(place:Place, area: 'main'| 'vip'):void{
-    console.log(place)
-    console.log(this.club.areas[0].main.places[0])
-    if(place.availability === 'available'){
+    if(place.availability  === 'available'){
       place.availability = 'booked';
+      this.clubService.changeAvailability(this.club).subscribe(
+        ()=> {
+          console.log('availability changed succesfully');
+        },
+        error =>{
+          console.error(error);
+          place.availability = 'available';
+        }
+      );
     }
-    console.log(this.club.areas[0].main.places[0])
-    // if(place.availability  === 'available'){
-    //   place.availability = 'booked';
-    //   this.clubService.changeAvailability(this.club).subscribe(
-    //     ()=> {
-    //       console.log('availability changed succesfully');
-    //     },
-    //     error =>{
-    //       console.error(error);
-    //       place.availability = 'available';
-    //     }
-    //   );
-    // }
   }
 
   getClubDetails(id:number): any{
@@ -113,14 +108,13 @@ export class PlacesComponent implements OnInit {
     }
     this.mainPlacesVisible = area === 'main';
     this.vipPlacesVisible = area === 'vip';
-    console.log('button clicked')
   }
 
   toBook(id:number,place: Place, clubId:number, name:'main'|'vip'):void{
     this.isOpen = true;
     this.placeId = id;
     this.clubId = clubId;
-    this.place = place;
+    this.place = place
     this.areaName = name;
   }
   closeBook():void{
