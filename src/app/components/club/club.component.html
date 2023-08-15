@@ -1,17 +1,18 @@
 <div> 
   <div class="info">
-    <div class="card">
-      <h5 class="card-header">{{club.name}}</h5>
+    <h1>BronClub / Компютерный Клуб / {{club.name}}</h1>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" [src]="club.photoUrl" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">{{club.rating}}</h5>
-        <p class="card-text">some instagramm, contacts, adress </p>
-        <h1>2Gis integration</h1>
-        <button class="btn btn-success" (click)="goToPlaces(club.id)"><span>
-          Забронировать
-        </span></button>
+        <h1 class="card-title">{{club.name}}</h1>
+        <h1>{{club.rating}}</h1>
+        <button class="btn-7" (click)="goToPlaces(club.id)">Забронировать</button>
       </div>
     </div>
   </div>
+</div>
+
+<div class="picture">
 
 </div>
 

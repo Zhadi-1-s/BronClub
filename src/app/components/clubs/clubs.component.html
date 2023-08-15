@@ -1,17 +1,3 @@
-<div *ngFor="let club of clubs" class="clubs">
-    <div class="card" style="width: 18rem;">
-        <img [src]="club.photoUrl" class="card-img-top">
-        <div class="card-body">
-            <a [routerLink]="['/clubs',club.id]" style="color: black;"><h1>{{club.name}}</h1></a>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Rating {{club.rating}}</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
-      </div>
+<div *ngFor="let club of clubs">
+  <h1>{{club.name}}</h1>
 </div>

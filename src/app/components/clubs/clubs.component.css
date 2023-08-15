@@ -1,7 +1,11 @@
 .clubs{
-    padding: 10px;
-    display: inline-block;
-    margin: 10px;
+    background-color: #292929;
+    position: absolute;
+    width:100%;
+    top: 100px;
+}
+.clubName{
+    color: aliceblue;
 }
 a{
     text-decoration: none;

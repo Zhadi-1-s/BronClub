@@ -1,15 +1,18 @@
 <div class="areas">
-  <h1>Выберите Зону </h1>
-  <div class="buttons">
-    <button class="btn btn-primary" (click)="showPlaces('main')" [ngClass]="{'active': mainPlacesVisible}">Main</button>
-    <button class="btn btn-primary" (click)="showPlaces('vip')" [ngClass]="{'active':vipPlacesVisible}">Vip</button>
-    <button class="btn btn-primary" (click)="goToAdmin(club.id)" type="button" >GO to admin</button>
+  <div class="logo" >
+    <p>BronClub / Комютерный Клуб / {{club.name}}</p>
   </div>
-  <div class="places">
+  <div class="buttons">
+    <h1>Выберите Зону </h1>
+    <button class="button-27" (click)="showPlaces('main')" [ngClass]="{'active': mainPlacesVisible}">Main</button>
+    <button class="button-27" (click)="showPlaces('vip')" [ngClass]="{'active':vipPlacesVisible}">Vip</button>
+    <button class="button-27" (click)="goToAdmin(club.id)" type="button" >GO to admin</button>
+  </div>
+<div class="places">
     <div>
       <div>
         <div *ngIf="mainPlaces.length" style="position: relative; left: 170px;">
-          <h1>Main Places</h1>
+          <h1>Main</h1>
           <ul *ngFor="let place of mainPlaces">
             <div>
               <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked' ? 'red':'green'}" (click)="toBook(place.place_id, place,club.id, 'main')" [disabled]="place.availability === 'booked'">
@@ -20,7 +23,7 @@
         </div>
         
         <div *ngIf="vipPlaces.length" style="position: relative; left: 170px;">
-          <h1>Vip Places</h1>
+          <h1>Vip</h1>
           <ul *ngFor="let place of vipPlaces">
             <div>
               <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked'?'red':'green'}" (click)="toBook(place.place_id,place, club.id, 'vip')" [disabled]="place.availability === 'booked'">
@@ -54,4 +57,8 @@
           </div>
         </div>
       </div>
-    </div>
+</div>
+
+<div class="last">
+  <hr>
+</div>

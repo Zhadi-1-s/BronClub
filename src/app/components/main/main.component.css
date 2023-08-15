@@ -5,12 +5,6 @@
     padding: 10px;
     padding-top: 10px;
 }
-.search input{
-    width: 500px;
-    height: 70px;
-    border-radius: 4px;
-    border: solid 0.5px;
-}
 .photo{
     width: 250px;
     position: relative;
@@ -20,5 +14,28 @@
 .photo img{
     width: 700px;
     size: 50%;
-
+    
+}
+.searchIng{
+    position: relative;
+    right: 50px;
+    top:100px;
+    border: solid 2px;
+    width: 600px;
+    height: 90px;
+    padding-left:10px;
+}
+.searchIng input{
+    width: 500px;
+    height: 70px;
+    border-radius: 4px;
+    border: solid 0.5px;
+    position: relative;
+    top: 10px;
+    padding-left: 10px;
+}
+.searchIng button{
+    margin-left: 10px;
+    width: 50px;
+    background-color: #292929;
 }
