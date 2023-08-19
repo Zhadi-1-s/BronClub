@@ -13,3 +13,20 @@ nav h1{
 nav a{
     text-decoration: none;
 }
+h1#admin{
+    margin-left: 1150px;
+}
+.secondNav{
+    position: relative;
+    top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.secondNav h1{
+    margin-left: 40px;
+    font-size: 20px;
+}
+.secondNav a{
+    text-decoration: underline;
+    color: black;
+}
