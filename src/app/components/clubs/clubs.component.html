@@ -1,3 +1,15 @@
-<div *ngFor="let club of clubs">
-  <h1>{{club.name}}</h1>
+<div>
+  <div class="parentclub">
+    <div *ngFor="let club of clubs" class="clubs">
+      <div class="clubsPhoto" (click)="goToClubDetail(club.id)">
+        <img [src]="club.photoUrl" alt="">
+      </div>
+      <div class="clubsdetail">
+        <h1 id="name">{{club.name}}</h1>
+        <h1 id="name">{{club.rating}}</h1>
+        <span class="fa fa-star checked"></span>
+      </div>
+    </div>
+  </div>
+  
 </div>

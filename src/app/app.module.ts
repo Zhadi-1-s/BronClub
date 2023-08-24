@@ -13,6 +13,7 @@ import { PlacesComponent } from './components/places/places.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AdminComponent } from './components/admin/admin.component';
     ClubComponent,
     PlacesComponent,
     AdminComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,59 +1,15 @@
 <div> 
   <div class="info">
-    <h1>BronClub / Компютерный Клуб / {{club.name}}</h1>
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" [src]="club.photoUrl" alt="Card image cap">
-      <div class="card-body">
-        <h1 class="card-title">{{club.name}}</h1>
-        <h1>{{club.rating}}</h1>
-        <button class="btn-7" (click)="goToPlaces(club.id)">Забронировать</button>
-      </div>
+    <p><a routerLink="main">BronClub</a> / Компютерный Клуб / {{club.name}}</p>
+    <div class="club">
+      <h1>{{club.name}} <i class="fa fa-heart" style="opacity: 0.5; margin-left: 250px;"></i></h1> 
+      <p>Компьютерный клуб</p>
+    </div>
+    <hr style="width: 320px;">
+    <h1>{{club.rating}}</h1>
+    <div>
+      <p>О нас</p>
+      <i class='fas fa-clock'></i>
     </div>
   </div>
 </div>
-
-<div class="picture">
-
-</div>
-
-<div *ngIf="isOpen">
-    <div class="booking">
-        <button (click)="closeBook()">Close</button>
-        <div class="mainPlaces">
-          <div class="mainVip">
-            <button class="btn btn-primary" (click)="showPlaces('main')" [ngClass]="{'active': mainPlacesVisible}">Main</button>
-            <button class="btn btn-primary" (click)="showPlaces('vip')" [ngClass]="{'active':vipPlacesVisible}">Vip</button>
-          </div>
-            <div class="appearPlaces">
-                <ul *ngFor="let place of mainPlaces">
-                  <div>
-                    <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked' ? 'red':'green'}">
-                      <span>{{place.place_id}}</span>
-                    </button>
-                  </div>
-                </ul>
-
-                <ul *ngFor="let place of vipPlaces">
-                  <div>
-                    <button class="selectPlace" [ngStyle]="{'background-color':place.availability === 'booked'?'red':'green'}">
-                      <span>{{place.place_id}}</span>
-                    </button>
-                  </div>
-                </ul> 
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- <div class="places">
-    <div>
-        <button class="btn btn-primary" (click)="showPlaces('main')" >Main</button>
-        <button class="btn btn-primary" (click)="showPlaces('vip')">Vip</button>
-    </div>
-    <div *ngFor="let place of mainPlaces">
-        <h1>{{place.place_id}}</h1>
-    </div>
-    <div *ngFor="let place of vipPlaces">
-        <h1>{{place.place_id}}</h1>
-    </div>
-</div> -->

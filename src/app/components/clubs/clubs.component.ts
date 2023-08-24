@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClubsService } from 'src/app/shared/clubs.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class ClubsComponent implements OnInit {
 
   clubs:any[];
 
-  constructor(private clubService:ClubsService){}
+  constructor(private clubService:ClubsService, private router: Router){}
 
   ngOnInit(): void {
    
@@ -23,5 +24,10 @@ export class ClubsComponent implements OnInit {
         console.log(error);
       }
     );
-}
+  }
+
+  goToClubDetail(id:number):void{
+    this.router.navigate(['/clubs', id]);
+  }
+
 }

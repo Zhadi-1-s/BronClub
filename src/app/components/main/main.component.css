@@ -14,7 +14,7 @@
 .photo img{
     width: 700px;
     size: 50%;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 h1#description{
     font-size: 50px;
