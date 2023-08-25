@@ -5,6 +5,7 @@ import { ClubsComponent } from './components/clubs/clubs.component';
 import { ClubComponent } from './components/club/club.component';
 import { PlacesComponent } from './components/places/places.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { FilteredclubsComponent } from './components/filteredclubs/filteredclubs.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/main',pathMatch:'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'clubs/places/:id',component:PlacesComponent},
   {path:'admin',component:AdminComponent},
   {path:'admin/:id',component:AdminComponent},
+  {path:'filter',component:FilteredclubsComponent},
   {path:'**',redirectTo:'/clubs',pathMatch:'full'},
 ];
 

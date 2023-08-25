@@ -8,26 +8,24 @@ import { ClubsService } from 'src/app/shared/clubs.service';
 export class MainComponent implements OnInit {
 
   clubs:any[];
-
-  test:string = '';
+  searchClub:string;
 
   constructor(private clubService:ClubsService){}
 
   ngOnInit(): void {
-   
-      this.clubService.getClubsData().subscribe(
-        data => {
-          this.clubs = data;
-          console.log(this.clubService);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-      console.log(this.test)
+    this.loadClubs()
   }
 
-  onSubmit(val:string){
-   console.log('the test is ',val)
+  loadClubs():void{
+    this.clubService.getClubsData().subscribe(
+      data => {
+        this.clubs = data;
+        console.log(this.clubService);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
+
 }

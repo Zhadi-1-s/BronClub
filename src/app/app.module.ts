@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
+import { FilteredclubsComponent } from './components/filteredclubs/filteredclubs.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
     PlacesComponent,
     AdminComponent,
     LoginComponent,
+    FilteredclubsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { LoginComponent } from './components/login/login.component';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
