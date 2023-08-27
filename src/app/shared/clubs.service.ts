@@ -22,4 +22,8 @@ export class ClubsService {
     const url = `${this.apiUrl}/${updatedClub.id}`;
     return this.http.put(url,updatedClub);
   }
+  searchClub(searchTerm: string):Observable<any>{
+    const url = `${this.apiUrl}?name_like=${searchTerm}`;
+    return this.http.get<any[]>(url)
+  }
 }

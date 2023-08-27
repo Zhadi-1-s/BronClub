@@ -1,5 +1,7 @@
 import { Component,OnInit} from '@angular/core';
 import { ClubsService } from 'src/app/shared/clubs.service';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -7,13 +9,29 @@ import { ClubsService } from 'src/app/shared/clubs.service';
 })
 export class MainComponent implements OnInit {
 
-  clubs:any[];
-  searchClub:string;
+  clubs:any[] = [];
 
-  constructor(private clubService:ClubsService){}
+  searchControl = new FormControl();
+
+  constructor(private clubService:ClubsService){
+    this.searchControl.valueChanges.pipe(debounceTime(300),
+    distinctUntilChanged(),
+    switchMap((searchTerm) => 
+      this.clubService.searchClub(searchTerm)
+      )
+    )
+    .subscribe((searchResults: any[]) => {
+      this.clubs = searchResults;
+    });
+  }
+
+  onSearchInputClear():void{
+    this.clubs = [];
+  }
 
   ngOnInit(): void {
     this.loadClubs()
+    this.onSearchInputClear();
   }
 
   loadClubs():void{

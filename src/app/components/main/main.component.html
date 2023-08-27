@@ -6,13 +6,12 @@
     </div>
     <p style="position: relative;top:90px;right: 45px; font-size: 15px;"> У антимага сегодня день рождение</p>
     <div class="searchIng">
-        <ng-select
-        [items]="clubs"
-        bindLabel="name"
-        placeholder="Search for clubs"
-        [(ngModel)]="searchClub"></ng-select>
+        <input type="text" [formControl]="searchControl" (input)="onSearchInputClear()">
         <button type="button"><i class="fa fa-search" style="font-size: 50px;"></i></button>
     </div>  
+    <div *ngFor="let club of clubs">
+        <h1>{{club.name}}</h1>
+    </div>
 </div>
 <div class="photo">
     <img src="assets/club.jpg">
