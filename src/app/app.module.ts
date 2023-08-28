@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import { ClubsComponent } from './components/clubs/clubs.component';
 import { ClubComponent } from './components/club/club.component';
-
+import { FilterPipe } from './shared/toSearch.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { PlacesComponent } from './components/places/places.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
 import { FilteredclubsComponent } from './components/filteredclubs/filteredclubs.component';
-import { NgSelectModule } from '@ng-select/ng-select';
+import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AdminComponent,
     LoginComponent,
     FilteredclubsComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -35,8 +37,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
-    NgSelectModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,12 +6,25 @@
     </div>
     <p style="position: relative;top:90px;right: 45px; font-size: 15px;"> У антимага сегодня день рождение</p>
     <div class="searchIng">
-        <input type="text" [formControl]="searchControl" (input)="onSearchInputClear()">
-        <button type="button"><i class="fa fa-search" style="font-size: 50px;"></i></button>
+        <mat-form-field>
+            <input matInput type="text" [(ngModel)]="searchClub" [matAutocomplete]="auto">
+            <button type="button"><i class="fa fa-search" style="font-size: 50px;"></i></button>
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let club of clubs | filter:searchClub" [value]="club">
+                    <h1>{{club.name}}</h1>
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
     </div>  
-    <div *ngFor="let club of clubs">
-        <h1>{{club.name}}</h1>
-    </div>
+    
+    <!-- <div class="searchClubs" *ngIf="clubVisible">
+        <div *ngFor="let club of clubs" >
+            <div class="clubsAppear">
+                <img [src]="club.photoUrl">
+                <h1>{{club.name}}</h1>
+            </div>
+        </div>
+    </div> -->
 </div>
 <div class="photo">
     <img src="assets/club.jpg">

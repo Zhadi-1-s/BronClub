@@ -46,8 +46,6 @@ h1#description{
 input:focus{
     outline: none;
 }
-
-
 .searchIng button{
     margin-left: 14px;
     width: 50px;
@@ -68,8 +66,27 @@ input:focus{
 .company span{
     margin-left: 10px;
 }
-.filteredClubs{
-    width: 200px;
-    height: 60px;
-    margin-top: 100px;
+.searchClubs{
+    width: 370px;
+    position: relative;
+    right: 50px;
+    bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    box-shadow: 0 0 5pt 0.5pt #D3D3D3;
+    border-radius: 8px;
+}
+.searchClubs img{
+    size: 50%;
+    border-radius: 50%;
+    width: 45px;
+}
+.clubsAppear{
+    display: flex;
+    flex-direction: row;
+    background-color: #fbfbfb;
+}
+.clubsAppear:hover{
+    background-color: #D3D3D3;
+    cursor: pointer;
 }

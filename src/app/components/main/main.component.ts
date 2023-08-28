@@ -1,6 +1,6 @@
 import { Component,OnInit} from '@angular/core';
 import { ClubsService } from 'src/app/shared/clubs.service';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-main',
@@ -11,34 +11,27 @@ export class MainComponent implements OnInit {
 
   clubs:any[] = [];
 
+  searchClub: string = '';
+
   searchControl = new FormControl();
 
-  constructor(private clubService:ClubsService){
-    this.searchControl.valueChanges.pipe(debounceTime(300),
-    distinctUntilChanged(),
-    switchMap((searchTerm) => 
-      this.clubService.searchClub(searchTerm)
-      )
-    )
-    .subscribe((searchResults: any[]) => {
-      this.clubs = searchResults;
-    });
-  }
+  clubVisible: boolean = false;
 
-  onSearchInputClear():void{
-    this.clubs = [];
-  }
+  constructor(private clubService:ClubsService){  }
 
   ngOnInit(): void {
-    this.loadClubs()
-    this.onSearchInputClear();
+
+    this.loadClubs();
+
+    this.transform(this.clubs,this.searchClub);
+    
   }
 
   loadClubs():void{
     this.clubService.getClubsData().subscribe(
       data => {
         this.clubs = data;
-        console.log(this.clubService);
+        console.log("data taked succesfully");
       },
       error => {
         console.log(error);
@@ -46,4 +39,41 @@ export class MainComponent implements OnInit {
     );
   }
 
+  transform(clubs:any[], searchText: string):any[] {
+    if(!clubs) return[];
+    if(!searchText) return clubs;
+
+    searchText = searchText.toLowerCase();
+
+    return clubs.filter(val => {
+        return val.name.toLowerCase().startsWith(searchText);
+    });
+}
+
+  // setupSearch(): void {
+  //   this.searchControl.valueChanges
+  //     .pipe(
+  //       startWith(''),
+  //       map(value => this._filter(value))
+  //     )
+  //     .subscribe(filtered => {
+  //       this.clubs = filtered;
+  //     });
+  //     console.log("data filtered succesfully")
+  // }
+
+  // private _filter(value: string): any[] {
+  //   const filterValue = value.toLowerCase();
+  //   return this.clubs.filter(club =>
+  //     club.name.toLowerCase().includes(filterValue)
+  //   );
+  // }
+
+  // displayFn(club:any):string{
+  //   return  club && club.name ? club.name: '';
+  // }
+
+  filterClubs(searchTerm:string):void{
+    this.clubs = this.clubs.filter(club => club.name.toLowerCase().startsWith(searchTerm.toLowerCase()) || !searchTerm);
+  }
 }

@@ -87,7 +87,44 @@
           }
         }
       ]
+    },
+    {
+      "id":3,
+      "name":"Morris",
+      "rating":"4.5",
+      "photoUrl":"assets/morris.jpg",
+      "areas":[
+        {
+          "main":{
+            "places":[
+              {
+                "place_id":1,
+                "availability":"available"
+              },
+              {
+                "place_id":2,
+                "availability":"available"
+              },
+              {
+                "place_id":3,
+                "availability":"available"
+              }
+            ]
+          },
+          "vip":{
+            "places":[
+              {
+                "place_id":1,
+                "availability":"available"
+              },
+              {
+                "place_id":2,
+                "availability":"available"
+              }
+            ]
+          }
+        }
+      ]
     }
-  ],
-  "users": []
+  ]
 }
