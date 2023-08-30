@@ -6,6 +6,7 @@ import { ClubComponent } from './components/club/club.component';
 import { PlacesComponent } from './components/places/places.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { FilteredclubsComponent } from './components/filteredclubs/filteredclubs.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/main',pathMatch:'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'admin',component:AdminComponent},
   {path:'admin/:id',component:AdminComponent},
   {path:'filter',component:FilteredclubsComponent},
+  {path:'login', component:LoginComponent},
   {path:'**',redirectTo:'/clubs',pathMatch:'full'},
 ];
 

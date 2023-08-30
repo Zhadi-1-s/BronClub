@@ -1,0 +1,35 @@
+.container{
+    position: absolute;
+    left: 440px;
+    top: 200px;
+    width: 570px;
+    height: 350px;
+    border:  solid 2px ;
+    background-color: #292929;
+    align-items: center;
+    border-radius: 8px;
+}
+.container h1{
+    color: azure;
+    font-size: 40px;
+    margin-top: 30px;
+    margin-left: 210px;
+    margin-bottom: -20px;
+}
+.sign-in{
+    margin-top: 50px;
+    margin-left: 100px;
+}
+.sign-in input{
+    width: 350px;
+    height: 45px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+input:focus{
+    outline: none;
+    font-size: 20px;
+}
+input::placeholder{
+    font-size: 40px;
+}

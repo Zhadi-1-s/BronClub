@@ -2,6 +2,7 @@ import { Component,OnInit} from '@angular/core';
 import { ClubsService } from 'src/app/shared/clubs.service';
 import { debounceTime, distinctUntilChanged, map, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -17,7 +18,7 @@ export class MainComponent implements OnInit {
 
   clubVisible: boolean = false;
 
-  constructor(private clubService:ClubsService){  }
+  constructor(private clubService:ClubsService,private router: Router){  }
 
   ngOnInit(): void {
 
@@ -48,30 +49,11 @@ export class MainComponent implements OnInit {
     return clubs.filter(val => {
         return val.name.toLowerCase().startsWith(searchText);
     });
-}
+  }
 
-  // setupSearch(): void {
-  //   this.searchControl.valueChanges
-  //     .pipe(
-  //       startWith(''),
-  //       map(value => this._filter(value))
-  //     )
-  //     .subscribe(filtered => {
-  //       this.clubs = filtered;
-  //     });
-  //     console.log("data filtered succesfully")
-  // }
-
-  // private _filter(value: string): any[] {
-  //   const filterValue = value.toLowerCase();
-  //   return this.clubs.filter(club =>
-  //     club.name.toLowerCase().includes(filterValue)
-  //   );
-  // }
-
-  // displayFn(club:any):string{
-  //   return  club && club.name ? club.name: '';
-  // }
+  goToClubDetail(id:number):void{
+    this.router.navigate(['/clubs', id]);
+  }
 
   filterClubs(searchTerm:string):void{
     this.clubs = this.clubs.filter(club => club.name.toLowerCase().startsWith(searchTerm.toLowerCase()) || !searchTerm);

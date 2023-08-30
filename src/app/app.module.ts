@@ -17,6 +17,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FilteredclubsComponent } from './components/filteredclubs/filteredclubs.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
+import { ForgotPasswordAdminComponent } from './components/forgot-password-admin/forgot-password-admin.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     LoginComponent,
     FilteredclubsComponent,
     FilterPipe,
+    RegisterAdminComponent,
+    ForgotPasswordAdminComponent,
   ],
   imports: [
     BrowserModule,
