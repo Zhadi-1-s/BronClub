@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Bro",
       "rating": "5.0",
-      "photoUrl": "assets/bro.jpg",
+      "photoUrl": "assets/bro/bro.jpg",
       "areas": [
         {
           "main": {

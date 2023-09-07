@@ -6,11 +6,6 @@
     height: 600px;
 
 }
-.logo{
-    position: fixed;
-    left: 130px;
-    top: 70px;
-}
 .selectPlace{
     border-radius: 4px;
 }

@@ -3,10 +3,11 @@ nav{
     padding-right: 10px;
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 nav h1{
     color: aliceblue;
-    padding-right: 40px;
+    padding-right: 70px;
     padding-left: 20px;
     padding-top: 10px;
 }
@@ -14,7 +15,8 @@ nav a{
     text-decoration: none;
 }
 h1#admin{
-    margin-left: 1150px;
+    position: absolute;
+    left: 1350px;
 }
 .secondNav{
     position: relative;

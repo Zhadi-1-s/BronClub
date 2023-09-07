@@ -19,6 +19,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { RegisterAdminComponent } from './components/register-admin/register-admin.component';
 import { ForgotPasswordAdminComponent } from './components/forgot-password-admin/forgot-password-admin.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../app/environments/environment'
 
 @NgModule({
   declarations: [
@@ -44,6 +50,11 @@ import { ForgotPasswordAdminComponent } from './components/forgot-password-admin
     ReactiveFormsModule,
     MatInputModule,
     MatAutocompleteModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

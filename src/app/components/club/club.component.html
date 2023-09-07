@@ -1,15 +1,36 @@
 <div> 
   <div class="info">
-    <p><a routerLink="main">BronClub</a> / Компютерный Клуб / {{club.name}}</p>
-    <div class="club">
-      <h1>{{club.name}} <i class="fa fa-heart" style="opacity: 0.5; margin-left: 250px;"></i></h1> 
-      <p>Компьютерный клуб</p>
-    </div>
-    <hr style="width: 320px;">
-    <h1>{{club.rating}}</h1>
-    <div>
+    <div class="container">
+      <p><a routerLink="main">BronClub</a> / Компютерный Клуб / {{club.name}}</p>
+      <div class="club">
+        <h1>{{club.name}} <i class="fa fa-heart" style="opacity: 0.5; margin-left: 250px;"></i></h1> 
+        <p>Компьютерный клуб</p>
+      </div>
+      <hr style="width: 320px;">
+      <h1>{{club.rating}}</h1>
       <p>О нас</p>
-      <i class='fas fa-clock'></i>
+      <div class="contacts">
+        <i class="fa fa-phone" style="font-size: 20px; margin-right: 10px;"></i>
+        <p>8 708 675 7610</p>
+      </div>
+      <div class="contacts">
+        <i style="font-size:24px;margin-right: 10px;" class="fa">&#xf16d;</i>
+        <p>Instagram</p>
+      </div>
+      <div id="map-container" class="map">
+      </div>
+      <button class="button-27" (click)="goToPlaces(club.id)">Забронировать</button>
+    </div>
+  </div>
+  <div class="images">
+    <div class="image-slider">
+      <div *ngFor="let img of images let i = index" class="slide" [@slideAnimation]="currentSlideIndex">
+        <img [src]="img" alt="Slider image">
+      </div>
+      <div class="nextPrev">
+        <button (click)="prevSlide()">Prev Slide</button>
+        <button (click)="nextSlide()">Next Slide</button>
+      </div>
     </div>
   </div>
 </div>

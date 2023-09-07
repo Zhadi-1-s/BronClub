@@ -25,11 +25,9 @@
     height: 45px;
     border-radius: 6px;
     margin-top: 15px;
+    font-size: 30px;
 }
 input:focus{
     outline: none;
     font-size: 20px;
-}
-input::placeholder{
-    font-size: 40px;
 }
