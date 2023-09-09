@@ -22,14 +22,18 @@
       <button class="button-27" (click)="goToPlaces(club.id)">Забронировать</button>
     </div>
   </div>
-  <div class="images">
-    <div class="image-slider">
-      <div *ngFor="let img of images let i = index" class="slide" [@slideAnimation]="currentSlideIndex">
-        <img [src]="img" alt="Slider image">
-      </div>
+  <div >
+    <div class="imgContainer">
+      <ng-container *ngFor="let img of images; let i = index" [@slideAnimation]="currentSlideIndex">
+        <img [src]="img" alt="slides" class="slide" *ngIf="i === currentSlideIndex">
+      </ng-container>
       <div class="nextPrev">
-        <button (click)="prevSlide()">Prev Slide</button>
-        <button (click)="nextSlide()">Next Slide</button>
+        <button (click)="prevSlideClick()" id="prev"></button>
+        <button (click)="nextSlideClick()" id="next"></button>
+    </div>
+    <div class="slideImages">
+      <div *ngFor="let img of images let i = index" style="display: inline-block;">
+        <img [src]="img" alt="asdasd" (click)="imageByClick(i)" id="underSlide">
       </div>
     </div>
   </div>

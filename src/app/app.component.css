@@ -17,6 +17,7 @@ nav a{
 h1#admin{
     position: absolute;
     left: 1350px;
+    padding: 0;
 }
 .secondNav{
     position: relative;

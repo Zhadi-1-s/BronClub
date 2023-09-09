@@ -54,12 +54,18 @@ export class ClubComponent implements OnInit {
   toBook: boolean = false;
 
   images: string[] = [
+    'assets/bro/satoru.jpg',
     'assets/bro/bro.jpg',
-    'assets/bro/satoru.jpg'
+    'assets/bro/aizen.jpg',
+    'assets/bro/son.jpg',
+    'assets/bro/firl.jpg',
+    'assets/bro/li.jpg'
   ]
 
   constructor(private route : ActivatedRoute, private clubService: ClubsService,private router: Router){
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflowY ='scroll'
+    document.body.style.overflowX = 'hidden'
+    document.body.style.backgroundColor = 'grey'
   }
 
   ngOnInit(): void {
@@ -68,6 +74,7 @@ export class ClubComponent implements OnInit {
         this.clubService.getClubById(clubId).subscribe(
           (data:Club) => {
             this.club = data;
+
           },
           error =>{
             console.error(error);
@@ -92,22 +99,30 @@ export class ClubComponent implements OnInit {
 
   currentSlideIndex:number = 0;
 
-  nextSlide(){
-    if(this.currentSlideIndex< this.images.length- 1){
+  nextSlideClick(){
+    if (this.currentSlideIndex < this.images.length -1 ){
       this.currentSlideIndex++;
     }
     else{
       this.currentSlideIndex = 0;
     }
+    // const next = this.currentSlideIndex +1;
+    // this.currentSlideIndex = next === this.images.length ? 0: next;
   }
 
-  prevSlide(){
+  prevSlideClick(){
     if(this.currentSlideIndex > 0){
       this.currentSlideIndex--;
     }
     else{
-      this.currentSlideIndex = this.images.length - 1;
+      this.currentSlideIndex =  this.images.length - 1;
     }
+    // const prev = this.currentSlideIndex - 1;
+    // this.currentSlideIndex = prev < 0 ? this.images.length - 1: prev;
+  }
+
+  imageByClick(index:number): void{
+    this.currentSlideIndex = index;
   }
 
   getClubDetails(id:number): any{

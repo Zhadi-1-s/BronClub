@@ -3,6 +3,7 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 body{
     background-color:rgb(255, 255, 255);
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 html, body { height: 100%; }

@@ -11,6 +11,7 @@
     height: 550px;
     box-shadow: 0 0 5pt 0.5pt #D3D3D3;
     border-radius: 8px;
+    background-color: white;
 }
 .container{
     margin-bottom: 10px;
@@ -47,7 +48,7 @@
     width: 100%;
     will-change: transform;
     width: 300px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
   
 .button-27:disabled {
@@ -73,28 +74,80 @@
     flex-direction: row;
     margin-right: 20px;
 }
-.images{
-    width: 400px;
-    height: 400px;
-    position: relative;
-    left: 700px;
-    bottom: 500px;
-}
-.image-slider{
-    display: flex;
+
+.imgContainer{
+    display: block;
     justify-content: space-between;
-    align-items: center;
+    position: relative;
+    bottom: 550px;
+    left: 800px;
 }
 .slide{
-    width: 150px;
-    transition: left 0.75s;
-    z-index: 12;
-}
-.slide img{
-    width: 300px;
+    position: absolute;
+    top: 0;
+    left: -150px;
+    width: 650px;
+    height: 400px;
     object-fit: cover;
+    transition: transform 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
+    border-radius: 0.5em;
+    box-shadow: 0 0 5pt 0.5pt #D3D3D3;
+}
+.slide:hover {
+    transform: scale(1.025);
 }
 .nextPrev{
+    position: absolute;
+    top: 275px;
+    justify-content: space-between;
+}
+.nextPrev button{
+    border-radius: 50%;
+    font-size: 50px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    border: none;
+}
+.nextPrev button:hover{
+    opacity: 0.8;
+    transition: 1s;
+}
+.nextPrev button#prev{
     position: relative;
-    top: 400px;
+    right: 140px;
+}
+.nextPrev button#next{
+    position: relative;
+    left: 350px;
+}
+.slideImages{
+    position: relative;
+    display: inline-block;
+    top: 450px;
+    right: 120px;
+    padding: -10px;
+    padding-bottom: -15px;
+    margin-bottom: -50px;
+    margin-top: -38px;
+    width: 570px;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+.slideImages img{
+    width: 100px;
+    height: 110px;
+    border-radius: 8px;
+    border: #D3D3D3 solid;
+    margin: 10px;
+}
+#underSlide{
+    cursor: pointer;
+}
+#underSlide:hover{
+    transition: 0.6s;
+    margin-bottom: 5px;
+    box-shadow: 0 2px rgb(145, 141, 141);
 }

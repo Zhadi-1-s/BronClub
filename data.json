@@ -9,50 +9,36 @@
                 "x":37.55,
                 "y":44.675
             },
-            "photoUrl":"assets/bro.jpg",
+            "mainPhoto":"assets/bro.jpg",
+            "areaPhotos":["some area photo_1","some area photo_2, ...n"],
+            "systemPhoto":"some photo of system",
             "areas":{
                 "main":{
-                    "places":[
-                        {
-                            "place_id":1,
-                            "availability":"available"
-                        },
-                        {
-                            "place_id":2,
-                            "availability":"available"
-                        }
-                    ],
                     "devices":{
                         "headphones":"Razer",
                         "monitor":"Acer",
                         "keyboard":"some-keyboard",
                         "mouse":"zoyee",
-                        "headphoesPhoto":"assets/TestClub/headphones",
-                        "monitorPhoto":"assets/TetsClub/monitor",
-                        "keyboardPhoto":"assets/TestClub/keyboard",
-                        "mousePhoto":"assets/TestClub/mouse"
+                        "chair":"some chair",
+                        "headphoesPhoto":"assets/TestClub/main/headphones",
+                        "monitorPhoto":"assets/TetsClub/main/monitor",
+                        "keyboardPhoto":"assets/TestClub/main/keyboard",
+                        "mousePhoto":"assets/TestClub/main/mouse",
+                        "chairPhoto":"assets/TestClub/main/chairPhoto"
                     }
                 },
                 "vip":{
-                    "places":[
-                        {
-                            "place_id":1,
-                            "availability":"available"
-                        },
-                        {
-                            "place_id":2,
-                            "availability":"available"
-                        }
-                    ],
                     "devices":{
                         "headphones":"Razer",
                         "monitor":"Acer",
                         "keyboard":"some-keyboard",
                         "mouse":"zoyee",
-                        "headphoesPhoto":"assets/TestClub/headphones",
-                        "monitorPhoto":"assets/TetsClub/monitor",
-                        "keyboardPhoto":"assets/TestClub/keyboard",
-                        "mousePhoto":"assets/TestClub/mouse"
+                        "chair":"some chair",
+                        "headphoesPhoto":"assets/TestClub/vip/headphones",
+                        "monitorPhoto":"assets/TetsClub/vip/monitor",
+                        "keyboardPhoto":"assets/TestClub/vip/keyboard",
+                        "mousePhoto":"assets/TestClub/vip/mouse",
+                        "chairPhoto":"assets/TestClub/vip/chairPhoto"
                     }
                 }
             }
